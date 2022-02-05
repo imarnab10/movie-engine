@@ -1,0 +1,8 @@
+<input
+  type="text"
+  class="form-control border-solid border-black border-2"
+  [(ngModel)]="query"
+  (keyup)="onSearchChange($event)"
+/>
+
+<app-movie-search [msgFromParent]="query"></app-movie-search>

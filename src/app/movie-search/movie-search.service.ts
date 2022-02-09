@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { MovieSearchResult } from '../model/movie-result.model';
 
 @Injectable()

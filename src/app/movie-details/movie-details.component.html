@@ -1,1 +1,24 @@
-<p>movie-details works!</p>
+<img
+  src="https://image.tmdb.org/t/p/w500/{{ movieDetailsData?.backdrop_path }}"
+  class="w-full h-[500px] rounded-lg shadow-xl shadow-gray-600"
+/>
+
+<div class="relative flex justify-center bottom-[300px]">
+  <div>
+    <img
+      src="https://image.tmdb.org/t/p/w500/{{ movieDetailsData?.poster_path }}"
+      class="w-72 h-96 rounded-md mx-5 shadow-xl shadow-gray-600"
+    />
+  </div>
+  <div class="w-80 bg-transparent mx-5 flex-col align-c">
+    <div class="text-3xl text-slate-50 font-semibold">
+      {{ movieDetailsData?.title }}
+    </div>
+    <div class="text-xl text-slate-50">
+      {{ movieDetailsData?.overview }}
+    </div>
+    <div class="text-xl text-black">
+      {{ movieDetailsData?.id }}
+    </div>
+  </div>
+</div>

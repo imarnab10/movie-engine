@@ -10,6 +10,7 @@ import { MovieSearchService } from './movie-search.service';
   styleUrls: ['./movie-search.component.css'],
 })
 export class MovieSearchComponent implements OnInit {
+  p: number = 1;
   @Input() msgFromParent!: string;
   movieSearchResult: MovieSearchResult | undefined;
   movieData: MovieModel[] | undefined;

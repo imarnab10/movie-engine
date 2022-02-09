@@ -1,8 +1,9 @@
 <input
   type="text"
-  class="form-control border-solid border-black border-2"
+  class="form-control border-solid border-black border-2 rounded-md"
   [(ngModel)]="query"
   (keyup)="onSearchChange($event)"
+  placeholder="enter the movie name "
 />
 
 <app-movie-search [msgFromParent]="query"></app-movie-search>

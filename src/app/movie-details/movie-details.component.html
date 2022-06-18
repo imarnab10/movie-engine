@@ -22,3 +22,13 @@
     </div>
   </div>
 </div>
+
+<div width="320" height="240" controls *ngFor="let item of videoIds">
+  {{ item }}
+</div>
+<div class="video" *ngFor="let item of videoIds">
+  <video controls>
+    <source src="{{ item }}" type="video/mp4" />
+    Browser not supported
+  </video>
+</div>

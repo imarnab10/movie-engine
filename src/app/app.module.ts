@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -11,7 +10,8 @@ import { MovieSearchService } from './movie-search/movie-search.service';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieDetailsSearchService } from './movie-details/movie-details.service';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { TrendingSearchService } from './home-page/home-page.service';
+import { MovieTrailerService } from './movie-details/movie-details.trailer.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +26,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     NgxPaginationModule,
   ],
-  providers: [MovieSearchService, MovieDetailsSearchService],
+  providers: [
+    MovieSearchService,
+    MovieDetailsSearchService,
+    TrendingSearchService,
+    MovieTrailerService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

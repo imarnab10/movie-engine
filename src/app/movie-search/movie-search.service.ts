@@ -6,11 +6,14 @@ import { MovieSearchResult } from '../model/movie-result.model';
 export class MovieSearchService {
   constructor(private http: HttpClient) {}
 
-  movieSearch(query: string) {
+  movieSearch(query: string, page: number) {
+    console.log(page);
     return this.http.get<MovieSearchResult>(
       'https://api.themoviedb.org/3/search/movie?api_key=95affd2e5dfbc96306e414c46d92bdaa&language=en-US&query=' +
         query +
-        '&page=1&include_adult=false'
+        '&page=' +
+        page +
+        '&include_adult=false'
     );
   }
 }

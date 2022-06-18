@@ -1,9 +1,97 @@
-<input
-  type="text"
-  class="form-control border-solid border-black border-2 rounded-md"
-  [(ngModel)]="query"
-  (keyup)="onSearchChange($event)"
-  placeholder="enter the movie name "
-/>
+<div class="flex justify-between my-7 bg-black">
+  <div class="ml-7 font-serif text-xl text-cyan-600">The Movie Engine</div>
+  <input
+    type="text"
+    class="form-control border-solid border-black border-2 rounded-md mr-36 m-2 bg-slate-300"
+    [(ngModel)]="query"
+    (keyup)="onSearchChange($event)"
+    placeholder="enter the movie name "
+  />
+</div>
+<div *ngIf="query == ''" class="bg-black">
+  <section class="banner mx-4">
+    <div class="mx-6">
+      <img src="./assets/images/John-Wick-3.jpg" class="mx-4" alt="" />
 
-<app-movie-search [msgFromParent]="query"></app-movie-search>
+      <div class="card-content">
+        <div class="card-info">
+          <div class="genre">
+            <!-- <ion-icon name="film"></ion-icon> -->
+            <span>Action/Thriller</span>
+          </div>
+
+          <div class="year">
+            <!-- <ion-icon name="calendar"></ion-icon> -->
+            <span>2019</span>
+          </div>
+
+          <div class="duration">
+            <!-- <ion-icon name="time"></ion-icon> -->
+            <span>2h 11m</span>
+          </div>
+
+          <div class="quality">4K</div>
+        </div>
+
+        <h2 class="card-title">John Wick: Chapter 3 - Parabellum</h2>
+      </div>
+    </div>
+  </section>
+  <div class="flex justify-center">
+    <div class="font-serif text-5xl text-cyan-600">Trending Now</div>
+  </div>
+  <div class="flex flex-wrap space-x-3 space-y-2 justify-center">
+    <div></div>
+    <div
+      class="bg-cyan-300 w-72 m-2 rounded-md"
+      *ngFor="
+        let item of movieData
+          | paginate
+            : {
+                itemsPerPage: 20,
+                currentPage: current_page,
+                totalItems: total_items
+              }
+      "
+      routerLink="/movie-details"
+      [queryParams]="{ movieDetailsId: item.id }"
+    >
+      <div class="">
+        <img
+          src="https://image.tmdb.org/t/p/original/{{ item.poster_path }}"
+          alt=""
+          class="h-96 rounded-md w-80"
+        />
+
+        <div class="flex justify-between">
+          <div class="font-sans mx-3">
+            <span>{{ item.vote_average }}</span>
+          </div>
+
+          <div class="mx-3">
+            <span class="">{{ item.release_date.split("-")[0] }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="">
+        <div class="font-serif text-lg">{{ item.original_title }}</div>
+        <div class="font-serif text-lg text-black">{{ item.id }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="grid justify-items-center mt-6">
+    <div class="">
+      <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="handlePageChange($event)"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>
+<app-movie-search
+  *ngIf="query != ''"
+  [msgFromParent]="query"
+></app-movie-search>

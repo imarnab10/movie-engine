@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieDetails } from '../model/movie-details.model';
 import { MovieDetailsSearchService } from './movie-details.service';
+import { MovieTrailerService } from './movie-details.trailer.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -10,9 +11,11 @@ import { MovieDetailsSearchService } from './movie-details.service';
 })
 export class MovieDetailsComponent implements OnInit {
   movieDetailsData: MovieDetails | undefined;
+  videoIds: string[] = [];
   constructor(
     private route: ActivatedRoute,
-    private movieDetailsSearchService: MovieDetailsSearchService
+    private movieDetailsSearchService: MovieDetailsSearchService,
+    private movieTrailerService: MovieTrailerService
   ) {}
 
   ngOnInit(): void {
@@ -22,6 +25,16 @@ export class MovieDetailsComponent implements OnInit {
         .getMovieDetails(params['movieDetailsId'])
         .subscribe((data) => {
           this.movieDetailsData = data;
+        });
+    });
+    this.route.queryParams.subscribe((params) => {
+      console.log(params['movieDetailsId']);
+      this.movieTrailerService
+        .getTrailer(params['movieDetailsId'])
+        .subscribe((data) => {
+          data.results.forEach((e: any) => {
+            this.videoIds.push('https://www.youtube.com/watch?v=' + e.key);
+          });
         });
     });
   }

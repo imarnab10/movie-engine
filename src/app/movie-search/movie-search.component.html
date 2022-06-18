@@ -42,11 +42,19 @@
 
   <!-- MOVIE CARD SECTION -->
 
-  <div class="flex flex-wrap space-x-3 space-y-2 justify-center">
+  <div class="flex flex-wrap space-x-3 space-y-2 justify-center bg-blue-300">
     <div></div>
     <div
       class="bg-red-400 w-72 m-2 rounded-md"
-      *ngFor="let item of movieData"
+      *ngFor="
+        let item of movieData
+          | paginate
+            : {
+                itemsPerPage: 20,
+                currentPage: current_page,
+                totalItems: total_items
+              }
+      "
       routerLink="/movie-details"
       [queryParams]="{ movieDetailsId: item.id }"
     >
@@ -74,4 +82,17 @@
       </div>
     </div>
   </div>
+  <div class="grid justify-items-center mt-6">
+    <div class="">
+      <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="handlePageChange($event)"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+  <!-- <div>total_pages {{ total_pages }}</div>
+  <div>current_page {{ current_page }}</div>
+  <div>total_items {{ total_items }}</div> -->
 </body>

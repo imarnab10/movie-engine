@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/the-final-movie-project",
+            "outputPath": "dist/movie-engine-01",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -103,5 +103,8 @@
       }
     }
   },
-  "defaultProject": "The-Final-Movie-Project"
+  "defaultProject": "The-Final-Movie-Project",
+  "cli": {
+    "analytics": false
+  }
 }

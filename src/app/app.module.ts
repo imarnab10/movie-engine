@@ -13,6 +13,7 @@ import { TrendingSearchService } from './home-page/home-page.service';
 import { MovieTrailerService } from './movie-details/movie-details.trailer.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { MovieReviewService } from './movie-details/movie-details.review.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     MovieDetailsSearchService,
     TrendingSearchService,
     MovieTrailerService,
+    MovieReviewService,
   ],
   bootstrap: [AppComponent],
 })

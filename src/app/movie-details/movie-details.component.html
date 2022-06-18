@@ -1,39 +1,40 @@
-<img
-  src="https://image.tmdb.org/t/p/w500/{{ movieDetailsData?.backdrop_path }}"
-  class="w-full h-[500px] rounded-lg shadow-xl shadow-gray-600"
-/>
+<div class="bg-black">
+  <img
+    src="https://image.tmdb.org/t/p/w500/{{ movieDetailsData?.backdrop_path }}"
+    class="w-full h-[500px] rounded-lg shadow-xl shadow-gray-600"
+  />
 
-<div class="relative flex justify-center bottom-[300px]">
-  <div>
-    <img
-      src="https://image.tmdb.org/t/p/w500/{{ movieDetailsData?.poster_path }}"
-      class="w-72 h-96 rounded-md mx-5 shadow-xl shadow-gray-600"
-    />
+  <div class="relative flex justify-center bottom-[300px]">
+    <div>
+      <img
+        src="https://image.tmdb.org/t/p/w500/{{
+          movieDetailsData?.poster_path
+        }}"
+        class="w-72 h-96 rounded-md mx-5 shadow-xl shadow-gray-600"
+      />
+    </div>
+    <div class="w-80 bg-transparent mx-5 flex-col align-c">
+      <div class="text-3xl text-slate-50 font-semibold">
+        {{ movieDetailsData?.title }}
+      </div>
+      <div class="text-xl text-slate-50">
+        {{ movieDetailsData?.overview }}
+      </div>
+      <div class="text-xl text-black">
+        {{ movieDetailsData?.id }}
+      </div>
+    </div>
   </div>
-  <div class="w-80 bg-transparent mx-5 flex-col align-c">
-    <div class="text-3xl text-slate-50 font-semibold">
-      {{ movieDetailsData?.title }}
-    </div>
-    <div class="text-xl text-slate-50">
-      {{ movieDetailsData?.overview }}
-    </div>
-    <div class="text-xl text-black">
-      {{ movieDetailsData?.id }}
+  <div *ngFor="let item of reviews.keys()">
+    <div class="text-cyan-600 text-5xl">{{ item }}</div>
+    <div class="text-cyan-600">{{ reviews.get(item) }}</div>
+  </div>
+  <div class="flex flex-wrap justify-evenly">
+    <div class="video" *ngFor="let item of videoIds">
+      <div class="p-3">
+        <youtube-player videoId="{{ item }}" [height]="250" [width]="500">
+        </youtube-player>
+      </div>
     </div>
   </div>
-</div>
-
-<div width="320" height="240" controls *ngFor="let item of videoIds">
-  {{ item }}
-</div>
-<div class="video" *ngFor="let item of videoIds">
-  <youtube-player
-    videoId="{{ item }}"
-    suggestedQuality="highres"
-    [height]="250"
-    [width]="500"
-    [startSeconds]="4"
-    [endSeconds]="8"
-  >
-  </youtube-player>
 </div>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "The-Final-Movie-Project": {
+    "movie-engine-01": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "The-Final-Movie-Project:build:production"
+              "browserTarget": "movie-engine-01:build:production"
             },
             "development": {
-              "browserTarget": "The-Final-Movie-Project:build:development"
+              "browserTarget": "movie-engine-01:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "The-Final-Movie-Project:build"
+            "browserTarget": "movie-engine-01:build"
           }
         },
         "test": {
@@ -103,7 +103,8 @@
       }
     }
   },
-  "defaultProject": "The-Final-Movie-Project",
+  "defaultProject": "movie-engine-01",
+  
   "cli": {
     "analytics": false
   }

@@ -33,7 +33,7 @@ export class MovieDetailsComponent implements OnInit {
         .getTrailer(params['movieDetailsId'])
         .subscribe((data) => {
           data.results.forEach((e: any) => {
-            this.videoIds.push('https://www.youtube.com/watch?v=' + e.key);
+            this.videoIds.push(e.key);
           });
         });
     });

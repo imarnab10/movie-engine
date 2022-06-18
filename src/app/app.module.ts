@@ -9,9 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieSearchService } from './movie-search/movie-search.service';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieDetailsSearchService } from './movie-details/movie-details.service';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { TrendingSearchService } from './home-page/home-page.service';
 import { MovieTrailerService } from './movie-details/movie-details.trailer.service';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { MovieTrailerService } from './movie-details/movie-details.trailer.servi
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
+    YouTubePlayerModule,
   ],
   providers: [
     MovieSearchService,

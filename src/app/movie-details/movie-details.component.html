@@ -27,8 +27,13 @@
   {{ item }}
 </div>
 <div class="video" *ngFor="let item of videoIds">
-  <video controls>
-    <source src="{{ item }}" type="video/mp4" />
-    Browser not supported
-  </video>
+  <youtube-player
+    videoId="{{ item }}"
+    suggestedQuality="highres"
+    [height]="250"
+    [width]="500"
+    [startSeconds]="4"
+    [endSeconds]="8"
+  >
+  </youtube-player>
 </div>

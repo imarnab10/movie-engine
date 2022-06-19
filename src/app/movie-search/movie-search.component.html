@@ -42,10 +42,10 @@
 
   <!-- MOVIE CARD SECTION -->
 
-  <div class="flex flex-wrap space-x-3 space-y-2 justify-center bg-blue-300">
+  <div class="flex flex-wrap space-x-9 space-y-9 justify-center">
     <div></div>
     <div
-      class="bg-red-400 w-72 m-2 rounded-md"
+      class="w-1/5 m-4 rounded-md"
       *ngFor="
         let item of movieData
           | paginate
@@ -58,28 +58,28 @@
       routerLink="/movie-details"
       [queryParams]="{ movieDetailsId: item.id }"
     >
-      <div class="">
+      <div class="relative">
         <img
           src="https://image.tmdb.org/t/p/original/{{ item.poster_path }}"
           alt=""
-          class="h-96 rounded-md w-80"
+          class="h-56 rounded-md w-96 z-0"
         />
 
-        <div class="flex justify-between">
-          <div class="font-sans mx-3">
-            <span>{{ item.vote_average }}</span>
-          </div>
-
-          <div class="mx-3">
-            <span class="">{{ item.release_date.split("-")[0] }}</span>
-          </div>
+        <div
+          class="font-sans text-white z-10 bg-red-300 absolute p-2 top-1 text-lg"
+        >
+          {{ item.vote_average }}
         </div>
+
+        <!-- <div class="mx-3">
+              <span class="">{{ item.release_date.split("-")[0] }}</span>
+            </div> -->
       </div>
 
-      <div class="">
+      <!-- <div class="">
         <div class="font-serif text-lg">{{ item.original_title }}</div>
         <div class="font-serif text-lg text-black">{{ item.id }}</div>
-      </div>
+      </div> -->
     </div>
   </div>
   <div class="grid justify-items-center mt-6">

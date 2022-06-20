@@ -56,24 +56,28 @@ export class HomePageComponent implements OnInit {
       src: 'https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg',
       alt: 'Side 1',
       title: 'The Drak Knight',
+      movieId: 155,
     },
     {
       id: '2',
       src: 'https://image.tmdb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg',
       alt: 'Side 2',
       title: 'The Shwashank Redemption',
+      movieId: 278,
     },
     {
       id: '3',
       src: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
       alt: 'Side 3',
       title: 'The Fight Club',
+      movieId: 550,
     },
     {
       id: '4',
       src: 'https://image.tmdb.org/t/p/original/6PlhouMCYktJmdFwS9XtqRZaTqc.jpg',
       alt: 'Side 4',
       title: '12 Angry Men',
+      movieId: 389,
     },
     {
       id: '5',
@@ -84,6 +88,7 @@ export class HomePageComponent implements OnInit {
     },
   ];
   customOptions: OwlOptions = {
+    autoWidth: true,
     loop: true,
     mouseDrag: false,
     touchDrag: false,

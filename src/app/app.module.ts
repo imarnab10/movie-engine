@@ -14,6 +14,8 @@ import { MovieTrailerService } from './movie-details/movie-details.trailer.servi
 import { NgxPaginationModule } from 'ngx-pagination';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MovieReviewService } from './movie-details/movie-details.review.service';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,8 @@ import { MovieReviewService } from './movie-details/movie-details.review.service
     HttpClientModule,
     NgxPaginationModule,
     YouTubePlayerModule,
+    CarouselModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     MovieSearchService,

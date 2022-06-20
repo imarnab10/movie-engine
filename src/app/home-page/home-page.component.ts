@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { MovieSearchResult } from '../model/movie-result.model';
 import { MovieModel } from '../model/movie-search.model';
 import { MovieSearchService } from '../movie-search/movie-search.service';
@@ -49,4 +50,63 @@ export class HomePageComponent implements OnInit {
     console.log('handlePagechnage called');
     this.handle2ndpageChange();
   }
+  dynamicSlides = [
+    {
+      id: '1',
+      src: 'https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg',
+      alt: 'Side 1',
+      title: 'The Drak Knight',
+    },
+    {
+      id: '2',
+      src: 'https://image.tmdb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg',
+      alt: 'Side 2',
+      title: 'The Shwashank Redemption',
+    },
+    {
+      id: '3',
+      src: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
+      alt: 'Side 3',
+      title: 'The Fight Club',
+    },
+    {
+      id: '4',
+      src: 'https://image.tmdb.org/t/p/original/6PlhouMCYktJmdFwS9XtqRZaTqc.jpg',
+      alt: 'Side 4',
+      title: '12 Angry Men',
+    },
+    {
+      id: '5',
+      src: 'https://image.tmdb.org/t/p/original/n0ybibhJtQ5icDqTp8eRytcIHJx.jpg',
+      alt: 'Side 5',
+      title: 'The Social Network',
+      movieId: 37799,
+    },
+  ];
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    autoplay: true,
+    autoplayTimeout: 100,
+    dots: false,
+    navSpeed: 1000,
+    navText: ['&#8249', '&#8250;'],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      450: {
+        items: 2,
+      },
+      760: {
+        items: 3,
+      },
+      1000: {
+        items: 4,
+      },
+    },
+    nav: true,
+  };
 }

@@ -1,28 +1,5 @@
 <head>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css"
-  />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-          },
-        },
-      },
-    };
-  </script>
+  <!-- Bootstrap CSS -->
 </head>
 <body>
   <div class="flex justify-between my-7 bg-black">
@@ -36,103 +13,13 @@
     />
   </div>
   <div *ngIf="query == ''" class="bg-white">
-    <div
-      id="carouselDarkVariant"
-      class="carousel slide carousel-fade carousel-dark relative"
-      data-bs-ride="carousel"
-    >
-      <!-- Indicators -->
-      <div
-        class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4"
-      >
-        <button
-          data-bs-target="#carouselDarkVariant"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          data-bs-target="#carouselDarkVariant"
-          data-bs-slide-to="1"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          data-bs-target="#carouselDarkVariant"
-          data-bs-slide-to="2"
-          aria-label="Slide 1"
-        ></button>
-      </div>
-
-      <!-- Inner -->
-      <div class="carousel-inner relative w-full overflow-hidden">
-        <!-- Single item -->
-        <div class="carousel-item active relative float-left w-full">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(19).webp"
-            class="block w-full"
-            alt="Motorbike Smoke"
-          />
-          <div class="carousel-caption hidden md:block absolute text-center">
-            <h5 class="text-xl">First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-          </div>
-        </div>
-
-        <!-- Single item -->
-        <div class="carousel-item relative float-left w-full">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(35).webp"
-            class="block w-full"
-            alt="Mountaintop"
-          />
-          <div class="carousel-caption hidden md:block absolute text-center">
-            <h5 class="text-xl">Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-          </div>
-        </div>
-
-        <!-- Single item -->
-        <div class="carousel-item relative float-left w-full">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(40).webp"
-            class="block w-full"
-            alt="Woman Reading a Book"
-          />
-          <div class="carousel-caption hidden md:block absolute text-center">
-            <h5 class="text-xl">Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Inner -->
-
-      <!-- Controls -->
-      <button
-        class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-        type="button"
-        data-bs-target="#carouselDarkVariant"
-        data-bs-slide="prev"
-      >
-        <span
-          class="carousel-control-prev-icon inline-block bg-no-repeat"
-          aria-hidden="true"
-        ></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-        type="button"
-        data-bs-target="#carouselDarkVariant"
-        data-bs-slide="next"
-      >
-        <span
-          class="carousel-control-next-icon inline-block bg-no-repeat"
-          aria-hidden="true"
-        ></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let slide of dynamicSlides" class="">
+        <ng-template carouselSlide [id]="slide.id">
+          <img [src]="slide.src" [alt]="slide.alt" [title]="slide.title" />
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
     <!-- <section class="banner mx-4">
       <div class="mx-6">
         <img src="./assets/images/John-Wick-3.jpg" class="mx-4" alt="" />
@@ -179,7 +66,7 @@
       >
         <div class="relative">
           <img
-            src="https://image.tmdb.org/t/p/original/{{ item.poster_path }}"
+            src="https://image.tmdb.org/t/p/w500/{{ item.poster_path }}"
             alt=""
             class="h-56 rounded-md w-96 z-0"
           />
@@ -216,5 +103,4 @@
     *ngIf="query != ''"
     [msgFromParent]="query"
   ></app-movie-search>
-  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </body>

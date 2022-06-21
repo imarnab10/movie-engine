@@ -11,7 +11,7 @@ import { MovieTrailerService } from './movie-details.trailer.service';
   styleUrls: ['./movie-details.component.css'],
 })
 export class MovieDetailsComponent implements OnInit {
-  movieDetailsData: MovieDetails | undefined;
+  movieDetailsData!: MovieDetails;
   videoIds: string[] = [];
   reviews: Map<string, string> = new Map<string, string>();
   constructor(

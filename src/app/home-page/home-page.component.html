@@ -2,15 +2,26 @@
   <!-- Bootstrap CSS -->
 </head>
 <body>
-  <div class="flex justify-between my-7 bg-black">
-    <div class="ml-7 font-serif text-xl text-cyan-600">The Movie Engine</div>
-    <input
-      type="text"
-      class="form-control border-solid border-black border-2 rounded-md mr-36 m-2 bg-slate-300"
-      [(ngModel)]="query"
-      (keyup)="onSearchChange($event)"
-      placeholder="Search Movie"
-    />
+  <div class="flex my-7 bg-slate-200">
+    <div>
+      <img
+        src="./assets/images/movies/BestLogoistInTheWorld.png"
+        alt="hello"
+        class="h-24 w-32 ml-3"
+      />
+    </div>
+    <div class="ml-7 font-serif text-xl text-cyan-600 mt-4 w-32">
+      The Movie Engine
+    </div>
+    <div class="mt-6 w-3/5">
+      <input
+        type="text"
+        class="form-control p-2.5"
+        [(ngModel)]="query"
+        (keyup)="onSearchChange($event)"
+        placeholder="Search here..."
+      />
+    </div>
   </div>
   <div *ngIf="query == ''" class="bg-white">
     <owl-carousel-o [options]="customOptions">
